@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserController : UITableViewController
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
 
-- (void)saveContext;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,6 +13,7 @@
 		B3309D3121A32FCD00190863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3309D3021A32FCD00190863 /* Assets.xcassets */; };
 		B3309D3421A32FCD00190863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3309D3221A32FCD00190863 /* LaunchScreen.storyboard */; };
 		B3309D3721A32FCD00190863 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3309D3621A32FCD00190863 /* main.m */; };
+		B3C3668121B5A8E3002D038A /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3668021B5A8E3002D038A /* DataManager.m */; };
 		B3CE5BC621A336F100ADC7F2 /* UserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CE5BC521A336F100ADC7F2 /* UserController.m */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,8 @@
 		B3309D3321A32FCD00190863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3309D3521A32FCD00190863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3309D3621A32FCD00190863 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3C3667F21B5A8E3002D038A /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		B3C3668021B5A8E3002D038A /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		B3CE5BC421A336F100ADC7F2 /* UserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserController.h; sourceTree = "<group>"; };
 		B3CE5BC521A336F100ADC7F2 /* UserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +63,8 @@
 		B3309D2321A32FCD00190863 /* CoreDataHW */ = {
 			isa = PBXGroup;
 			children = (
+				B3C3667F21B5A8E3002D038A /* DataManager.h */,
+				B3C3668021B5A8E3002D038A /* DataManager.m */,
 				B3CE5BC421A336F100ADC7F2 /* UserController.h */,
 				B3CE5BC521A336F100ADC7F2 /* UserController.m */,
 				B3309D2421A32FCD00190863 /* AppDelegate.h */,
@@ -145,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3309D2F21A32FCD00190863 /* CoreDataHW.xcdatamodeld in Sources */,
+				B3C3668121B5A8E3002D038A /* DataManager.m in Sources */,
 				B3309D3721A32FCD00190863 /* main.m in Sources */,
 				B3CE5BC621A336F100ADC7F2 /* UserController.m in Sources */,
 				B3309D2621A32FCD00190863 /* AppDelegate.m in Sources */,
