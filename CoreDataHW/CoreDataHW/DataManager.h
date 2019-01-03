@@ -16,9 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 +(DataManager *)sharedManager;
-- (NSArray *) getUsersArray;
+- (void)deleteAllEntities:(NSString *)nameEntity;
+- (void)createRandomUser;
+- (void)createRandomCourse;
 - (void)saveContext;
-
 
 @end
 

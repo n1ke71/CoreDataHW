@@ -7,7 +7,9 @@
 //
 
 #import "DataManager.h"
-
+#import "User+CoreDataClass.h"
+#import "Course+CoreDataClass.h"
+#import "Utils.h"
 @implementation DataManager
 
 +(DataManager *)sharedManager{
@@ -21,12 +23,6 @@
 return manager;
 }
 
-- (NSArray *) getUsersArray{
-NSFetchRequest *request = [[NSFetchRequest alloc]init];
-NSEntityDescription *description = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.persistentContainer.viewContext];
-[request setEntity:description];
-return [self.persistentContainer.viewContext executeFetchRequest:request error:nil];
-}
 
 #pragma mark - Core Data stack
 
@@ -71,5 +67,46 @@ return [self.persistentContainer.viewContext executeFetchRequest:request error:n
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+- (void)deleteAllEntities:(NSString *)nameEntity
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:nameEntity];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.persistentContainer.viewContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [self.persistentContainer.viewContext deleteObject:object];
+    }
+    
+    error = nil;
+    [self.persistentContainer.viewContext save:&error];
+}
+
+- (void) createRandomUser{
+   
+        User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                   inManagedObjectContext:self.persistentContainer.viewContext];
+    
+        user.firstName = firstNames[arc4random_uniform(50)];
+        user.lastName = lastNames[arc4random_uniform(50)];
+        user.email = adresses[arc4random_uniform(50)];
+        [self saveContext];
+}
+
+- (void) createRandomCourse{
+    
+    Course *course = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
+                                               inManagedObjectContext:self.persistentContainer.viewContext];
+    uint32_t randomNumber = arc4random_uniform(100) % 50;
+    randomTechCourseName = arc4random_uniform(5) + 1;
+    randomHumCourseName = arc4random_uniform(5) + 1;;
+    course.courseName = randomNumber ? nameOfTechCourse(randomTechCourseName):nameOfHumCourse(randomHumCourseName);
+    course.mentor = [NSString stringWithFormat:@"%@ %@",firstNames[arc4random_uniform(50)],lastNames[arc4random_uniform(50)]];
+    course.sector = randomNumber ? @"Technical Sector":@"Humanitarian Sector";
+    course.subject = randomNumber ? technicalSubjects[arc4random_uniform(8)]:humanitarianSubjects[arc4random_uniform(8)]; 
+    [self saveContext];
 }
 @end
