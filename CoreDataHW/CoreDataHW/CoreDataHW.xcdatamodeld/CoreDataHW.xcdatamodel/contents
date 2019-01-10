@@ -5,13 +5,13 @@
         <attribute name="mentor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sector" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="User" inverseName="course" inverseEntity="User" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="course" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="course" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Course" inverseName="users" inverseEntity="Course" syncable="YES"/>
+        <relationship name="course" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="users" inverseEntity="Course" syncable="YES"/>
     </entity>
     <elements>
         <element name="Course" positionX="-32886.21875" positionY="12618.9296875" width="128" height="118"/>

@@ -8,7 +8,7 @@
 
 #import "CourseViewController.h"
 #import "DataManager.h"
-#import "CourseDetailViewController.h"
+#import "CourseDetailTableViewController.h"
 
 @interface CourseViewController ()
 
@@ -29,7 +29,7 @@
 #pragma mark - Actions
 
 - (void)addItem:(UIBarButtonItem *) sender {
-    [self performSegueWithIdentifier:@"CourseDetailViewController" sender:nil];
+    [self performSegueWithIdentifier:@"CourseDetailTableViewController" sender:nil];
 }
 
 - (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
@@ -83,8 +83,8 @@
 #pragma mark - Segues
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([segue.destinationViewController isKindOfClass:[CourseDetailViewController class]]) {
-         CourseDetailViewController* courseDetailTableViewController = segue.destinationViewController;
+     if ([segue.destinationViewController isKindOfClass:[CourseDetailTableViewController class]]) {
+         CourseDetailTableViewController* courseDetailTableViewController = segue.destinationViewController;
          courseDetailTableViewController.course = sender;
     }
 }
@@ -93,7 +93,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     [self performSegueWithIdentifier:@"CourseDetailViewController" sender:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+     [self performSegueWithIdentifier:@"CourseDetailTableViewController" sender:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 }
 
 #pragma mark - Fetched results controller

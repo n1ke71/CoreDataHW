@@ -57,28 +57,28 @@ static NSString* humanitarianSubjects[] = {
 };
 
 typedef enum {
-    TecknicalCourseNameNone,
-    TecknicalCourseNameMathimatics,
-    TecknicalCourseNameDevOps,
-    TecknicalCourseNameSysAdministrating,
-    TecknicalCourseNameTesting,
-    TecknicalCourseNameSysArchitecture
-} TecknicalCourseName;
-TecknicalCourseName randomTechCourseName;
+    TechnicalCourseNameNone,
+    TechnicalCourseNameMathimatics,
+    TechnicalCourseNameDevOps,
+    TechnicalCourseNameSysAdministrating,
+    TechnicalCourseNameTesting,
+    TechnicalCourseNameSysArchitecture
+} TechnicalCourseName;
+TechnicalCourseName randomTechCourseName;
 
-NSString * nameOfTechCourse(TecknicalCourseName name) {
+NSString * nameOfTechCourse(TechnicalCourseName name) {
     switch (name) {
-        case TecknicalCourseNameNone:
+        case TechnicalCourseNameNone:
             return @"None";
-        case TecknicalCourseNameMathimatics:
+        case TechnicalCourseNameMathimatics:
             return @"Mathimatics";
-        case TecknicalCourseNameDevOps:
+        case TechnicalCourseNameDevOps:
             return @"DevOps";
-        case TecknicalCourseNameSysAdministrating:
+        case TechnicalCourseNameSysAdministrating:
             return @"Administrating";
-        case TecknicalCourseNameTesting:
+        case TechnicalCourseNameTesting:
             return @"Testing";
-        case TecknicalCourseNameSysArchitecture:
+        case TechnicalCourseNameSysArchitecture:
             return @"System Architecture";
     }
 }

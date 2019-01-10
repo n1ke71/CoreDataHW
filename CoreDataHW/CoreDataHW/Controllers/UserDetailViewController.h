@@ -12,17 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum {
-   UsersAttributeFirstName,
-   UsersAttributeLastName,
-   UsersAttributeEmail
-} UsersAttribute;
-
 @interface UserDetailViewController : UITableViewController <UITextFieldDelegate>
-
 @property (strong, nonatomic) User* user;
-@property (assign, nonatomic) UsersAttribute usersAttribute;
-
 @end
 
 NS_ASSUME_NONNULL_END

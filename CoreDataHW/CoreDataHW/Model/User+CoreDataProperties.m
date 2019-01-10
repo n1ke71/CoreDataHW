@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.m
 //  CoreDataHW
 //
-//  Created by Kozaderov Ivan on 03/01/2019.
+//  Created by Kozaderov Ivan on 05/01/2019.
 //  Copyright © 2019 n1ke71. All rights reserved.
 //
 //
