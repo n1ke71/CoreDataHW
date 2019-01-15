@@ -17,10 +17,8 @@
 @property (strong,nonatomic)  NSArray *users;
 @property (strong, nonatomic) UITextField* courseNameTextField;
 @property (strong, nonatomic) UITextField* subjectTextField;
-@property (strong, nonatomic) UITextField* sectorNameTextField;
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* subject;
-@property (strong, nonatomic) NSString* sector;
 @property (strong, nonatomic) NSString* mentor;
 @property (strong,nonatomic)  NSMutableArray *selectedUsers;
 @end
@@ -47,7 +45,6 @@
     
     self.name = self.course.courseName;
     self.subject = self.course.subject;
-    self.sector = self.course.sector;
     self.mentor = self.course.mentor;
     
     if (self.course) {
@@ -80,7 +77,7 @@
 - (void)saveItem:(UIBarButtonItem *) sender {
     
     
-    if ((!self.name) | (!self.sector) | (!self.mentor) | (!self.subject)) {
+    if ((!self.name) | (!self.mentor) | (!self.subject)) {
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Empty text field"
                                                                        message:@"All fields must be filled in"
@@ -102,7 +99,6 @@
         
         course.courseName = self.name;
         course.subject = self.subject;
-        course.sector = self.sector;
         course.mentor = self.mentor;
         course.users = [NSSet setWithArray:self.selectedUsers];
         
@@ -117,7 +113,6 @@
     }else{
         self.course.courseName = self.name;
         self.course.subject = self.subject;
-        self.course.sector = self.sector;
         self.course.mentor = self.mentor;
         [[DataManager sharedManager]saveContext];
     }
@@ -142,7 +137,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section ? [self.users count] + 1 : 4;
+    return section ? [self.users count] + 1 : 3;
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -167,19 +162,14 @@
             return courseDetailCell;
         }
         if (indexPath.row == 2) {
-            courseDetailCell.detailText.text = @"Sector";
-            courseDetailCell.detailTextField.text = self.sector;
-            self.sectorNameTextField = courseDetailCell.detailTextField;
-            return courseDetailCell;
-        }
-        if (indexPath.row == 3) {
             if (self.mentor) {
-                courseCell.textLabel.textAlignment = NSTextAlignmentLeft;
-                courseCell.textLabel.text = [NSString stringWithFormat:@"Mentor %@",self.mentor];
+                courseCell.textLabel.text = @"Mentor";
+                courseCell.detailTextLabel.text = self.mentor;
                 courseCell.accessoryType = UITableViewCellAccessoryNone;
             } else {
-                courseCell.textLabel.textAlignment = NSTextAlignmentCenter;
                 courseCell.textLabel.text = @"Add Mentor";
+                courseCell.detailTextLabel.text = @"";
+                courseCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             return courseCell;
         }
@@ -189,10 +179,12 @@
         
         if (indexPath.row == 0) {
             courseCell.textLabel.text = @"Add User";
+            courseCell.detailTextLabel.text = @"";
         }else {
                 if([self.users count] > 0){
                 User *user = [self.users objectAtIndex:indexPath.row - 1];
                 courseCell.textLabel.text = [NSString stringWithFormat:@"%@ %@",user.firstName,user.lastName];
+                courseCell.detailTextLabel.text = @"";
                 courseCell.accessoryType = UITableViewCellAccessoryNone;
             }
         }
@@ -207,11 +199,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        if (indexPath.row == 3) {
+        if (indexPath.row == 2) {
             self.selectionType = DetailSelectionTypeMentor;
             self.name = self.courseNameTextField.text;
             self.subject = self.subjectTextField.text;
-            self.sector = self.sectorNameTextField.text;
             [self performSegueWithIdentifier:@"SelectionViewController" sender:self.course];
         }
     }

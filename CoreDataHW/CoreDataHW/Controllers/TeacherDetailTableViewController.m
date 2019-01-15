@@ -36,9 +36,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeacherDetailCell" forIndexPath:indexPath];
     if (indexPath.row == 0) {
-        cell.textLabel.text = self.teacher.teacherName;
+        cell.textLabel.text = @"Teachers name";
+        cell.detailTextLabel.text = self.teacher.teacherName;
     } else {
-        cell.textLabel.text = self.teacher.subject;
+        cell.textLabel.text = @"Subject";
+        cell.detailTextLabel.text = self.teacher.subject;
     }
     return cell;
 }

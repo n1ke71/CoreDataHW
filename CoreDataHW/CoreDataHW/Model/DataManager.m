@@ -105,7 +105,6 @@ return manager;
     randomHumCourseName = arc4random_uniform(5) + 1;;
     course.courseName = randomNumber ? nameOfTechCourse(randomTechCourseName):nameOfHumCourse(randomHumCourseName);
     course.mentor = [NSString stringWithFormat:@"%@ %@",firstNames[arc4random_uniform(50)],lastNames[arc4random_uniform(50)]];
-    course.sector = randomNumber ? @"Technical Sector":@"Humanitarian Sector";
     course.subject = randomNumber ? technicalSubjects[arc4random_uniform(8)]:humanitarianSubjects[arc4random_uniform(8)]; 
     [self saveContext];
 }

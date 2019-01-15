@@ -25,6 +25,18 @@
 
 #pragma mark - UITableViewDataSource
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{   
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    NSArray *teachersArray = [sectionInfo objects];
+    if ([teachersArray count] > 0)
+    {
+        Teacher *teacher = [teachersArray objectAtIndex:0];
+        NSString *categoryName = teacher.subject;
+        return categoryName;
+    }
+    return [sectionInfo name];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];
 }
@@ -97,12 +109,13 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *firstNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"teacherName" ascending:YES];
-    [fetchRequest setSortDescriptors:@[firstNameDescriptor]];
+    NSSortDescriptor *subjectDescriptor = [[NSSortDescriptor alloc] initWithKey:@"subject" ascending:YES];
+    NSSortDescriptor *teacherNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"teacherName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[subjectDescriptor,teacherNameDescriptor]];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController<Teacher *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[DataManager sharedManager].persistentContainer.viewContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController<Teacher *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[DataManager sharedManager].persistentContainer.viewContext sectionNameKeyPath:@"subject" cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     
     NSError *error = nil;

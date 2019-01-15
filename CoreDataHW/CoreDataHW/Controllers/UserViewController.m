@@ -80,7 +80,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell withObject:(User *)user {
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",user.firstName,user.lastName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu", [[user.course allObjects] count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"course:%lu", [[user.course allObjects] count]];
 }
 #pragma mark - Segues
 
