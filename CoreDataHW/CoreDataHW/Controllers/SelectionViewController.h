@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController<User *> *fetchedResultsController;
-@property (strong, nonatomic) NSPersistentContainer *persistentContainer;
 @property (strong, nonatomic) Course* currentCourse;
 @property (assign, nonatomic) SelectionType selectionType;
 @property (weak,nonatomic) id <SelectionViewControllerDelegate> delegate;

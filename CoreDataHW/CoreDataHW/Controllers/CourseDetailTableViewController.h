@@ -15,17 +15,11 @@ typedef enum {
     DetailSelectionTypeUser,
     DetailSelectionTypeMentor
 } DetailSelectionType;
-typedef enum {
-    CourseAttributeCourseName,
-    CourseAttributeSubject,
-    CourseAttributeSector,
-} CourseAttribute;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CourseDetailTableViewController : UITableViewController<UITextFieldDelegate>
 @property (strong, nonatomic) Course* course;
-@property (assign, nonatomic) CourseAttribute courseAttribute;
 @property (assign, nonatomic) DetailSelectionType selectionType;
 @end
 

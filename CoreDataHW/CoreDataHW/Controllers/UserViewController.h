@@ -13,10 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-
 @property (strong, nonatomic) NSFetchedResultsController<User *> *fetchedResultsController;
-@property (strong, nonatomic) NSPersistentContainer *persistentContainer;
-
 @end
 
 NS_ASSUME_NONNULL_END

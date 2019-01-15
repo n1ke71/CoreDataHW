@@ -81,7 +81,6 @@
             }
         }
     }
-
 }
 
 #pragma mark - UITableViewDelegate
@@ -116,7 +115,6 @@
     if (self.selectionType == SelectionTypeMentor) {
         if (self.currentCourse) {
             [self.delegate didSelectMentor:user];
-            [[DataManager sharedManager]saveContext];
             [tableView reloadData];
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {

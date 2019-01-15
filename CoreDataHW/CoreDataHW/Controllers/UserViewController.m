@@ -20,9 +20,11 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"Users";
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                             target:self
-                                                                             action:@selector(addItem:)];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithTitle:@"Add User"
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(addItem:)];
+    
     self.navigationItem.rightBarButtonItem = addItem;
 }
 

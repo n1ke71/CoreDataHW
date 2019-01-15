@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"User Details";
+    self.navigationItem.title = @"User Details/Editing";
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                              target:self
                                                                              action:@selector(saveItem:)];
@@ -93,7 +93,15 @@
     
     if (([self.firstName isEqualToString:@""]) | ([self.lastName isEqualToString:@""]) | ([self.email isEqualToString:@""])) {
         
-#warning ActionViewController
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Empty text field"
+                                                                       message:@"All fields must be filled in"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     

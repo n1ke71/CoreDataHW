@@ -13,18 +13,16 @@
 		B3309D2C21A32FCD00190863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3309D2A21A32FCD00190863 /* Main.storyboard */; };
 		B3309D3421A32FCD00190863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3309D3221A32FCD00190863 /* LaunchScreen.storyboard */; };
 		B3309D3721A32FCD00190863 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3309D3621A32FCD00190863 /* main.m */; };
-		B391152121E0EFB1001DC46D /* Course+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B391151B21E0EFB1001DC46D /* Course+CoreDataClass.m */; };
-		B391152221E0EFB1001DC46D /* Course+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B391151C21E0EFB1001DC46D /* Course+CoreDataProperties.m */; };
-		B391152321E0EFB1001DC46D /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B391151F21E0EFB1001DC46D /* User+CoreDataClass.m */; };
-		B391152421E0EFB1001DC46D /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B391152021E0EFB1001DC46D /* User+CoreDataProperties.m */; };
 		B391152721E0FEBF001DC46D /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B391152621E0FEBF001DC46D /* SelectionViewController.m */; };
 		B391152A21E1444A001DC46D /* CourseDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B391152921E1444A001DC46D /* CourseDetailTableViewController.m */; };
 		B3C3668121B5A8E3002D038A /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C3668021B5A8E3002D038A /* DataManager.m */; };
+		B3D5BCCB21ECFBD800BD2C6A /* teacher.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D5BCCA21ECFBD800BD2C6A /* teacher.png */; };
+		B3D5BCCE21ECFC1D00BD2C6A /* TeacherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D5BCCD21ECFC1D00BD2C6A /* TeacherTableViewController.m */; };
+		B3D5BCD121ECFC4A00BD2C6A /* TeacherDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D5BCD021ECFC4A00BD2C6A /* TeacherDetailTableViewController.m */; };
 		B3F1C3A521CC0F76007AE4E8 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F1C3A421CC0F76007AE4E8 /* UserViewController.m */; };
 		B3F1C3AB21D16956007AE4E8 /* CourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F1C3AA21D16956007AE4E8 /* CourseViewController.m */; };
 		B3F1C3B321D2B0D0007AE4E8 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F1C3B221D2B0D0007AE4E8 /* CourseDetailCell.m */; };
 		B3F1C3B821DE8FA9007AE4E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F1C3B721DE8FA9007AE4E8 /* Assets.xcassets */; };
-		B3F1C3BC21DE8FE2007AE4E8 /* mentor.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F1C3B921DE8FE1007AE4E8 /* mentor.png */; };
 		B3F1C3BD21DE8FE2007AE4E8 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F1C3BA21DE8FE1007AE4E8 /* user.png */; };
 		B3F1C3BE21DE8FE2007AE4E8 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = B3F1C3BB21DE8FE1007AE4E8 /* course.png */; };
 		B3F1C3D921DE9399007AE4E8 /* CoreDataHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3F1C3D721DE9399007AE4E8 /* CoreDataHW.xcdatamodeld */; };
@@ -42,20 +40,17 @@
 		B3309D3321A32FCD00190863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3309D3521A32FCD00190863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3309D3621A32FCD00190863 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B391151921E0EFB1001DC46D /* Course+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Course+CoreDataProperties.h"; path = "CoreDataHW/Model/Course+CoreDataProperties.h"; sourceTree = "<group>"; };
-		B391151A21E0EFB1001DC46D /* Course+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Course+CoreDataClass.h"; path = "CoreDataHW/Model/Course+CoreDataClass.h"; sourceTree = "<group>"; };
-		B391151B21E0EFB1001DC46D /* Course+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Course+CoreDataClass.m"; path = "CoreDataHW/Model/Course+CoreDataClass.m"; sourceTree = "<group>"; };
-		B391151C21E0EFB1001DC46D /* Course+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Course+CoreDataProperties.m"; path = "CoreDataHW/Model/Course+CoreDataProperties.m"; sourceTree = "<group>"; };
-		B391151D21E0EFB1001DC46D /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "CoreDataHW/Model/User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		B391151E21E0EFB1001DC46D /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataClass.h"; path = "CoreDataHW/Model/User+CoreDataClass.h"; sourceTree = "<group>"; };
-		B391151F21E0EFB1001DC46D /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataClass.m"; path = "CoreDataHW/Model/User+CoreDataClass.m"; sourceTree = "<group>"; };
-		B391152021E0EFB1001DC46D /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "CoreDataHW/Model/User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B391152521E0FEBF001DC46D /* SelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionViewController.h; sourceTree = "<group>"; };
 		B391152621E0FEBF001DC46D /* SelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
 		B391152821E1444A001DC46D /* CourseDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailTableViewController.h; sourceTree = "<group>"; };
 		B391152921E1444A001DC46D /* CourseDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailTableViewController.m; sourceTree = "<group>"; };
 		B3C3667F21B5A8E3002D038A /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		B3C3668021B5A8E3002D038A /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		B3D5BCCA21ECFBD800BD2C6A /* teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teacher.png; sourceTree = "<group>"; };
+		B3D5BCCC21ECFC1D00BD2C6A /* TeacherTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherTableViewController.h; sourceTree = "<group>"; };
+		B3D5BCCD21ECFC1D00BD2C6A /* TeacherTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherTableViewController.m; sourceTree = "<group>"; };
+		B3D5BCCF21ECFC4A00BD2C6A /* TeacherDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherDetailTableViewController.h; sourceTree = "<group>"; };
+		B3D5BCD021ECFC4A00BD2C6A /* TeacherDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherDetailTableViewController.m; sourceTree = "<group>"; };
 		B3F1C3A321CC0F76007AE4E8 /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		B3F1C3A421CC0F76007AE4E8 /* UserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		B3F1C3A921D16956007AE4E8 /* CourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseViewController.h; sourceTree = "<group>"; };
@@ -64,7 +59,6 @@
 		B3F1C3B121D2B0D0007AE4E8 /* CourseDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
 		B3F1C3B221D2B0D0007AE4E8 /* CourseDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
 		B3F1C3B721DE8FA9007AE4E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B3F1C3B921DE8FE1007AE4E8 /* mentor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentor.png; sourceTree = "<group>"; };
 		B3F1C3BA21DE8FE1007AE4E8 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		B3F1C3BB21DE8FE1007AE4E8 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = course.png; sourceTree = "<group>"; };
 		B3F1C3D821DE9399007AE4E8 /* CoreDataHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHW.xcdatamodel; sourceTree = "<group>"; };
@@ -84,14 +78,6 @@
 		B3309D1821A32FCD00190863 = {
 			isa = PBXGroup;
 			children = (
-				B391151921E0EFB1001DC46D /* Course+CoreDataProperties.h */,
-				B391151A21E0EFB1001DC46D /* Course+CoreDataClass.h */,
-				B391151B21E0EFB1001DC46D /* Course+CoreDataClass.m */,
-				B391151C21E0EFB1001DC46D /* Course+CoreDataProperties.m */,
-				B391151D21E0EFB1001DC46D /* User+CoreDataProperties.h */,
-				B391151E21E0EFB1001DC46D /* User+CoreDataClass.h */,
-				B391151F21E0EFB1001DC46D /* User+CoreDataClass.m */,
-				B391152021E0EFB1001DC46D /* User+CoreDataProperties.m */,
 				B3309D2321A32FCD00190863 /* CoreDataHW */,
 				B3309D2221A32FCD00190863 /* Products */,
 			);
@@ -116,7 +102,7 @@
 				B3309D2A21A32FCD00190863 /* Main.storyboard */,
 				B3F1C3B721DE8FA9007AE4E8 /* Assets.xcassets */,
 				B3F1C3BB21DE8FE1007AE4E8 /* course.png */,
-				B3F1C3B921DE8FE1007AE4E8 /* mentor.png */,
+				B3D5BCCA21ECFBD800BD2C6A /* teacher.png */,
 				B3F1C3BA21DE8FE1007AE4E8 /* user.png */,
 				B3F1C3D721DE9399007AE4E8 /* CoreDataHW.xcdatamodeld */,
 				B3309D3221A32FCD00190863 /* LaunchScreen.storyboard */,
@@ -151,6 +137,10 @@
 				B3F1C3A421CC0F76007AE4E8 /* UserViewController.m */,
 				B30855F321BAEB0B0095B966 /* UserDetailViewController.h */,
 				B30855F421BAEB0B0095B966 /* UserDetailViewController.m */,
+				B3D5BCCC21ECFC1D00BD2C6A /* TeacherTableViewController.h */,
+				B3D5BCCD21ECFC1D00BD2C6A /* TeacherTableViewController.m */,
+				B3D5BCCF21ECFC4A00BD2C6A /* TeacherDetailTableViewController.h */,
+				B3D5BCD021ECFC4A00BD2C6A /* TeacherDetailTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,9 +213,9 @@
 			files = (
 				B3309D3421A32FCD00190863 /* LaunchScreen.storyboard in Resources */,
 				B3F1C3BD21DE8FE2007AE4E8 /* user.png in Resources */,
+				B3D5BCCB21ECFBD800BD2C6A /* teacher.png in Resources */,
 				B3F1C3BE21DE8FE2007AE4E8 /* course.png in Resources */,
 				B3F1C3B821DE8FA9007AE4E8 /* Assets.xcassets in Resources */,
-				B3F1C3BC21DE8FE2007AE4E8 /* mentor.png in Resources */,
 				B3309D2C21A32FCD00190863 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,13 +233,11 @@
 				B3F1C3B321D2B0D0007AE4E8 /* CourseDetailCell.m in Sources */,
 				B30855F521BAEB0B0095B966 /* UserDetailViewController.m in Sources */,
 				B391152A21E1444A001DC46D /* CourseDetailTableViewController.m in Sources */,
+				B3D5BCCE21ECFC1D00BD2C6A /* TeacherTableViewController.m in Sources */,
 				B3309D3721A32FCD00190863 /* main.m in Sources */,
-				B391152321E0EFB1001DC46D /* User+CoreDataClass.m in Sources */,
 				B30855FF21C43C960095B966 /* UserDetailCell.m in Sources */,
-				B391152121E0EFB1001DC46D /* Course+CoreDataClass.m in Sources */,
 				B3F1C3A521CC0F76007AE4E8 /* UserViewController.m in Sources */,
-				B391152221E0EFB1001DC46D /* Course+CoreDataProperties.m in Sources */,
-				B391152421E0EFB1001DC46D /* User+CoreDataProperties.m in Sources */,
+				B3D5BCD121ECFC4A00BD2C6A /* TeacherDetailTableViewController.m in Sources */,
 				B3309D2621A32FCD00190863 /* AppDelegate.m in Sources */,
 				B391152721E0FEBF001DC46D /* SelectionViewController.m in Sources */,
 			);

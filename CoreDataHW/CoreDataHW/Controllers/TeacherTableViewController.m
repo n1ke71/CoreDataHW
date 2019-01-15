@@ -1,42 +1,26 @@
 //
-//  CourseViewController.m
+//  TeacherTableViewController.m
 //  CoreDataHW
 //
-//  Created by Kozaderov Ivan on 24/12/2018.
-//  Copyright © 2018 n1ke71. All rights reserved.
+//  Created by Kozaderov Ivan on 14/01/2019.
+//  Copyright © 2019 n1ke71. All rights reserved.
 //
 
-#import "CourseViewController.h"
+#import "TeacherTableViewController.h"
 #import "DataManager.h"
-#import "CourseDetailTableViewController.h"
+#import "TeacherDetailTableViewController.h"
 
-@interface CourseViewController ()
+@interface TeacherTableViewController ()
 
 @end
 
-@implementation CourseViewController
+@implementation TeacherTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Courses";
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithTitle:@"Add Course"
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(addItem:)];
-    self.navigationItem.rightBarButtonItem = addItem;
-}
+    self.navigationItem.title = @"Teachers";
 
-#pragma mark - Actions
-
-- (void)addItem:(UIBarButtonItem *) sender {
-    [self performSegueWithIdentifier:@"CourseDetailTableViewController" sender:nil];
-}
-
-- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if (event.subtype == UIEventTypeMotion) {
-        [[DataManager sharedManager] createRandomCourse];
-    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -51,9 +35,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseCell" forIndexPath:indexPath];
-    Course *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self configureCell:cell withObject:course];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeacherCell" forIndexPath:indexPath];
+    Teacher *teacher = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configureCell:cell withObject:teacher];
     return cell;
 }
 
@@ -77,16 +61,17 @@
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(Course *)course {
-    cell.textLabel.text = course.courseName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu", [[course.users allObjects] count]];
+- (void)configureCell:(UITableViewCell *)cell withObject:(Teacher *)teacher {
+    cell.textLabel.text = teacher.teacherName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu", [[teacher.courses allObjects] count]];
 }
+
 #pragma mark - Segues
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([segue.destinationViewController isKindOfClass:[CourseDetailTableViewController class]]) {
-         CourseDetailTableViewController* courseDetailTableViewController = segue.destinationViewController;
-         courseDetailTableViewController.course = sender;
+    if ([segue.destinationViewController isKindOfClass:[TeacherDetailTableViewController class]]) {
+        TeacherDetailTableViewController* teacherDetailTableViewController = segue.destinationViewController;
+        teacherDetailTableViewController.teacher = sender;
     }
 }
 
@@ -94,32 +79,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     [self performSegueWithIdentifier:@"CourseDetailTableViewController" sender:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [self performSegueWithIdentifier:@"TeacherTableViewController" sender:[self.fetchedResultsController objectAtIndexPath:indexPath]];
 }
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController< Course *> *)fetchedResultsController {
+- (NSFetchedResultsController< Teacher *> *)fetchedResultsController {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    NSFetchRequest<Course *> *fetchRequest = [[NSFetchRequest alloc]init];
-    NSEntityDescription *description = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:[DataManager sharedManager].persistentContainer.viewContext];
+    NSFetchRequest<Teacher *> *fetchRequest = [[NSFetchRequest alloc]init];
+    NSEntityDescription *description = [NSEntityDescription entityForName:@"Teacher" inManagedObjectContext:[DataManager sharedManager].persistentContainer.viewContext];
     [fetchRequest setEntity:description];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-
-    NSSortDescriptor *firstNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"courseName" ascending:YES];
-    NSSortDescriptor *lastNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"subject" ascending:YES];
-    [fetchRequest setSortDescriptors:@[firstNameDescriptor,lastNameDescriptor]];
+    NSSortDescriptor *firstNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"teacherName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[firstNameDescriptor]];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController<Course *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[DataManager sharedManager].persistentContainer.viewContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController<Teacher *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[DataManager sharedManager].persistentContainer.viewContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     
     NSError *error = nil;
@@ -182,4 +165,6 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+
+
 @end

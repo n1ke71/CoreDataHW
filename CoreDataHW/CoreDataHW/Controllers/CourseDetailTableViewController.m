@@ -10,6 +10,8 @@
 #import "CourseDetailCell.h"
 #import "DataManager.h"
 #import "SelectionViewController.h"
+#import <CoreData/CoreData.h>
+#import "Teacher+CoreDataClass.h"
 
 @interface CourseDetailTableViewController () <SelectionViewControllerDelegate>
 @property (strong,nonatomic)  NSArray *users;
@@ -37,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Course Details";
+    self.navigationItem.title = @"Course Details/Editing";
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                               target:self
                                                                               action:@selector(saveItem:)];
@@ -79,6 +81,16 @@
     
     
     if ((!self.name) | (!self.sector) | (!self.mentor) | (!self.subject)) {
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Empty text field"
+                                                                       message:@"All fields must be filled in"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     
@@ -93,6 +105,13 @@
         course.sector = self.sector;
         course.mentor = self.mentor;
         course.users = [NSSet setWithArray:self.selectedUsers];
+        
+        Teacher *teacher = [NSEntityDescription insertNewObjectForEntityForName:@"Teacher"
+                                                       inManagedObjectContext:[DataManager sharedManager].persistentContainer.viewContext];
+        
+        teacher.subject = course.subject;
+        teacher.teacherName = course.mentor;
+        [teacher addCoursesObject:course];
         [[DataManager sharedManager]saveContext];
         
     }else{
