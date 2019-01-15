@@ -26,6 +26,7 @@
                                                                action:@selector(addItem:)];
     
     self.navigationItem.rightBarButtonItem = addItem;
+    
 }
 
 #pragma mark - Actions
